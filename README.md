@@ -31,6 +31,9 @@ The [Plugs](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_tit
 
 ----------------------------------------------------
 
+![Waschmaschine](https://github.com/user-attachments/assets/7326f17a-fdff-4ef7-9d1d-388ce79ff5f3)
+
+
 The Plugs measure the Power and if its raised over 100W the Node Red Powermonitor swich to "Starting" 
 
 If the energy consumption fall under the value of 2W the Powermonitor switch to "Finish" and Alexa reacts with:
