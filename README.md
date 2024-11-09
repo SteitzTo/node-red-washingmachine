@@ -4,11 +4,11 @@ Node-Red-Washingmaschine
 Hi,
 
 
-At home I always had the problem when the Waschingmaschine or the Dryer is finish, there is no notification that the Job is done.
+At home I always had the problem, when the Waschingmaschine or the Dryer is finish, there is no notification that the Job is done.
 
 So you have to go downstairs in the cellar to look if its done.  Very annoying!
 
-It woukd be nice if Alexa reminds you.
+It would be nice if Alexa reminds you.
 
 --------------------------------------------
 Dependencies:
