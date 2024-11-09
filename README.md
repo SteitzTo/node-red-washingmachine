@@ -34,24 +34,20 @@ The [Plugs](https://www.amazon.de/gp/product/B08BFPGWZ1/ref=ppx_yo_dt_b_asin_tit
 ![Waschmaschine](https://github.com/user-attachments/assets/7326f17a-fdff-4ef7-9d1d-388ce79ff5f3)
 
 
-The Plugs measure the Power and if its raised over 100W the Node Red Powermonitor swich to "Starting" 
+The Plugs measure the Power and if its raised over 250W over 3 minutes the Node-Red Powermonitor swich to "Starting" 
 
-If the energy consumption fall under the value of 2W the Powermonitor switch to "Finish" and Alexa reacts with:
+If the energy consumption fall under the value of 2W over 3 minutes the Powermonitor switch to "Finish" and Alexa reacts with:
 
-Hello the Waschingmaschine / Dryer is finish.
+"Hello the Washingmachine / Dryer is finish."
 
-She repated this notification 2 times.
+She repated this notification 2 times on 2 diffrent Alexa Accounts (my Account and my Parents Account)
 
-You have to adjust your thresholds Powermonitor to your fits, bacause every Washingmaschine / Dryer and every Programm on this Maschines are diffrent.
-
-I send the readout of the Plugs to a Influx-DB and visualised it with Grafana to find out my values 
+You have to adjust your thresholds Powermonitor for your fits, because every Washingmachine / Dryer and every Programm on this Machines are diffrent.
 
 
 
 
 
-
-
-If you want to use it too: have fun with it.
+If you want to use it, have fun with it.
 
 Torsten
