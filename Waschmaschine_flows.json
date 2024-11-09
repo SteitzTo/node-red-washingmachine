@@ -1,0 +1,451 @@
+[
+    {
+        "id": "f7bf45597fd0cf30",
+        "type": "tab",
+        "label": "Waschmaschine / Trockner",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bf056895e9aa128a",
+        "type": "mqtt in",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "topic": "tele/tasmota_991745/SENSOR",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "a4a3cc56ed9dd522",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "1e037f24b815c4dc"
+            ]
+        ]
+    },
+    {
+        "id": "1e037f24b815c4dc",
+        "type": "json",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "94c55d03eaf02960"
+            ]
+        ]
+    },
+    {
+        "id": "94c55d03eaf02960",
+        "type": "change",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ENERGY.Power",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 180,
+        "wires": [
+            [
+                "5a40676e27af5a08"
+            ]
+        ]
+    },
+    {
+        "id": "5a40676e27af5a08",
+        "type": "power-monitor",
+        "z": "f7bf45597fd0cf30",
+        "name": "Waschmaschine",
+        "startthreshold": "250",
+        "stopthreshold": "2",
+        "startafter": "3",
+        "stopafter": "3",
+        "energydecimals": 4,
+        "emitidle": false,
+        "preservemsg": false,
+        "x": 860,
+        "y": 180,
+        "wires": [
+            [
+                "f8cbdf9943dcfcb5"
+            ]
+        ]
+    },
+    {
+        "id": "f8cbdf9943dcfcb5",
+        "type": "switch",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "property": "payload.event",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "stop",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "start",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1050,
+        "y": 180,
+        "wires": [
+            [
+                "1b6dadafe798fca9",
+                "f32a42a52864935a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f32a42a52864935a",
+        "type": "alexa-remote-routine",
+        "z": "f7bf45597fd0cf30",
+        "name": "Alexa Torsten",
+        "account": "9f1a5d45c77b7b5e",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Hallo, die Waschmaschine ist fertig"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
+                "devices": [
+                    "G091AA0811270237"
+                ]
+            }
+        },
+        "x": 1240,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0760b64bb3f85665",
+        "type": "comment",
+        "z": "f7bf45597fd0cf30",
+        "name": "Benachrichtigung  Waschmaschine fertig",
+        "info": "",
+        "x": 290,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9d236bb91dde3897",
+        "type": "mqtt in",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "topic": "tele/tasmota_B74C54/SENSOR",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "a4a3cc56ed9dd522",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "edcb2349edf29e77"
+            ]
+        ]
+    },
+    {
+        "id": "edcb2349edf29e77",
+        "type": "json",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 380,
+        "wires": [
+            [
+                "8c88adf7199da219"
+            ]
+        ]
+    },
+    {
+        "id": "8c88adf7199da219",
+        "type": "change",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ENERGY.Power",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 380,
+        "wires": [
+            [
+                "68b756461152801c"
+            ]
+        ]
+    },
+    {
+        "id": "68b756461152801c",
+        "type": "power-monitor",
+        "z": "f7bf45597fd0cf30",
+        "name": "Trockner",
+        "startthreshold": "100",
+        "stopthreshold": "2",
+        "startafter": "3",
+        "stopafter": "3",
+        "energydecimals": 4,
+        "emitidle": false,
+        "preservemsg": false,
+        "x": 820,
+        "y": 380,
+        "wires": [
+            [
+                "36ea471cf374aee8"
+            ]
+        ]
+    },
+    {
+        "id": "36ea471cf374aee8",
+        "type": "switch",
+        "z": "f7bf45597fd0cf30",
+        "name": "",
+        "property": "payload.event",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "stop",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "start",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1030,
+        "y": 380,
+        "wires": [
+            [
+                "f0adc7a18add6687",
+                "c5bdb7fb8efd8979"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "df499be6d9156f6c",
+        "type": "comment",
+        "z": "f7bf45597fd0cf30",
+        "name": "Benachrichtigung Trockner fertig",
+        "info": "",
+        "x": 270,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c5bdb7fb8efd8979",
+        "type": "alexa-remote-routine",
+        "z": "f7bf45597fd0cf30",
+        "name": "Alexa Torsten",
+        "account": "9f1a5d45c77b7b5e",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Hallo, der Trockner ist fertig"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
+                "devices": [
+                    "G091AA0811270237"
+                ]
+            }
+        },
+        "x": 1220,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f0adc7a18add6687",
+        "type": "alexa-remote-routine",
+        "z": "f7bf45597fd0cf30",
+        "name": "Alexa Eltern",
+        "account": "f396ab5cbb024e80",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Hallo, der Trockner ist fertig"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
+                "devices": [
+                    "G0922H07335500VF"
+                ]
+            }
+        },
+        "x": 1210,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b6dadafe798fca9",
+        "type": "alexa-remote-routine",
+        "z": "f7bf45597fd0cf30",
+        "name": "Alexa Eltern",
+        "account": "f396ab5cbb024e80",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Hallo, die Waschmaschine ist fertig"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
+                "devices": [
+                    "G0922H07335500VF"
+                ]
+            }
+        },
+        "x": 1230,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4a3cc56ed9dd522",
+        "type": "mqtt-broker",
+        "name": "MQTT-Server",
+        "broker": "192.168.2.2",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9f1a5d45c77b7b5e",
+        "type": "alexa-remote-account",
+        "name": "Alexa Torsten",
+        "authMethod": "proxy",
+        "proxyOwnIp": "192.168.2.2",
+        "proxyPort": "3456",
+        "cookieFile": "/home/pi/alex-cookie-torsten.txt",
+        "refreshInterval": "3",
+        "alexaServiceHost": "layla.amazon.de",
+        "pushDispatchHost": "",
+        "amazonPage": "amazon.de",
+        "acceptLanguage": "de-DE",
+        "onKeywordInLanguage": "an",
+        "userAgent": "",
+        "usePushConnection": "on",
+        "autoInit": "on",
+        "autoQueryActivityOnTrigger": "off"
+    },
+    {
+        "id": "f396ab5cbb024e80",
+        "type": "alexa-remote-account",
+        "name": "Alexa-Eltern",
+        "authMethod": "proxy",
+        "proxyOwnIp": "192.168.2.2",
+        "proxyPort": "3457",
+        "cookieFile": "/home/pi/alex-coockie-eltern.txt",
+        "refreshInterval": "3",
+        "alexaServiceHost": "layla.amazon.de",
+        "pushDispatchHost": "",
+        "amazonPage": "amazon.de",
+        "acceptLanguage": "de-DE",
+        "onKeywordInLanguage": "on",
+        "userAgent": "",
+        "usePushConnection": "on",
+        "autoInit": "on",
+        "autoQueryActivityOnTrigger": "off"
+    }
+]
